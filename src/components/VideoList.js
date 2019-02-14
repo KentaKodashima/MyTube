@@ -1,7 +1,10 @@
 import React from 'react'
+import VideoItem from './VideoItem'
 
 const VideoList = () => {
-  return <div>VideoList</div>
+  return (
+    <VideoItem />
+  )
 }
 
 export default VideoList

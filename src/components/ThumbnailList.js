@@ -1,7 +1,10 @@
 import React from 'react'
+import ThumbnailItem from './ThumbnailItem'
 
 const ThumbnailList = () => {
-  return <div>ThumbnailList</div>
+  return (
+    <ThumbnailItem />
+  )
 }
 
 export default ThumbnailList
