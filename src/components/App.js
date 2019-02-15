@@ -29,6 +29,8 @@ class App extends React.Component {
       videos: response.data.items,
       thumbnailVideos: thumbnailArray
     })
+
+    history.push('/')
   }
 
   fetchRandomThumbnailVideo = (videos) => {
