@@ -7,17 +7,60 @@ import Home from './Home'
 import Detail from './Detail'
 
 class App extends React.Component {
-  state = { videos: [] }
+  state = { videos: [], thumbnailVideos: [] }
+
+  componentDidMount() {
+    this.onTermSubmit('funny video')
+  }
+
+  onTermSubmit = async term => {
+    const response = await youtube.get('search', {
+      params: {
+        q: term
+      }
+    })
+
+    const allVideos = response.data.items
+    const thumbnailArray = []
+    thumbnailArray.push(this.fetchRandomThumbnailVideo(allVideos))
+    thumbnailArray.push(this.fetchRandomThumbnailVideo(allVideos))
+
+    this.setState({ 
+      videos: response.data.items,
+      thumbnailVideos: thumbnailArray
+    })
+
+    console.log(this.state.thumbnailVideos)
+  }
+
+  fetchRandomThumbnailVideo = (videos) => {
+    const randomNum = Math.floor(Math.random() * Math.floor(videos.length))
+    const video = videos[randomNum]
+    videos.splice(randomNum, 1)
+
+    return video
+  }
+
+  // onVideoSelect = video => {
+  //   this.setState({ selectedVideo: video })
+  // }
 
   render() {
+    const { videos, thumbnailVideos } = this.state
     return (
-      <div className="ui container">
+      <div>
         <Router history={history}>
           <div>
-            <Header />
+            <Header onTermSubmit={this.onTermSubmit} />
             <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/detail/:id" exact component={Detail} />
+              <div className="ui container">
+                <Route 
+                  path="/" 
+                  exact
+                  render={props => <Home videos={videos} thumbnailVideos={thumbnailVideos} />} 
+                />
+                <Route path="/detail/:id" exact component={Detail} />
+              </div>
             </Switch>
           </div>
         </Router>
