@@ -29,8 +29,6 @@ class App extends React.Component {
       videos: response.data.items,
       thumbnailVideos: thumbnailArray
     })
-
-    console.log(this.state.thumbnailVideos)
   }
 
   fetchRandomThumbnailVideo = (videos) => {
@@ -41,9 +39,9 @@ class App extends React.Component {
     return video
   }
 
-  // onVideoSelect = video => {
-  //   this.setState({ selectedVideo: video })
-  // }
+  onVideoSelect = video => {
+    this.setState({ selectedVideo: video })
+  }
 
   render() {
     const { videos, thumbnailVideos } = this.state
@@ -57,9 +55,23 @@ class App extends React.Component {
                 <Route 
                   path="/" 
                   exact
-                  render={props => <Home videos={videos} thumbnailVideos={thumbnailVideos} />} 
+                  render={ props => 
+                    <Home 
+                      videos={videos} 
+                      thumbnailVideos={thumbnailVideos} 
+                      onVideoSelect={this.onVideoSelect}
+                    />} 
                 />
-                <Route path="/detail/:id" exact component={Detail} />
+                <Route 
+                  path="/detail/:id" 
+                  exact
+                  render={ props => 
+                    <Detail 
+                      videos={videos} 
+                      onVideoSelect={this.onVideoSelect}
+                      selectedVideo={this.state.selectedVideo}
+                    />}
+                />
               </div>
             </Switch>
           </div>
