@@ -1,6 +1,5 @@
 import './VideoItem.css'
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 const VideoItem = ({ video, onVideoSelect }) => {
   return (
