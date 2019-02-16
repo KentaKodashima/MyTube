@@ -5,7 +5,7 @@ import VideoList from './VideoList'
 const Home = ({ videos, thumbnailVideos, onVideoSelect }) => {
   return (
     <div>
-      <ThumbnailList thumbnailVideos={thumbnailVideos} />
+      <ThumbnailList thumbnailVideos={thumbnailVideos} onVideoSelect={onVideoSelect} />
       <VideoList videos={videos} onVideoSelect={onVideoSelect} />
     </div>
   )

@@ -1,4 +1,6 @@
+import './Header.css'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class Header extends React.Component {
   state = { term: '' }
@@ -16,17 +18,24 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div className="search-bar ui segment">
-        <form onSubmit={this.onFormSUbmit} className="ui form">
-          <div className="field">
-            <input 
-              type="text"
-              value={this.state.term}
-              onChange={this.onInputChange}
-              placeholder="Search for videos..."
-            />
+      <div className="ui segment">
+        <div className="ui secondary menu">
+          <div className="item">
+            <Link to="/">
+              MyTube
+            </Link>
           </div>
-        </form>
+          <form onSubmit={this.onFormSUbmit} className="ui form search-bar">
+            <div className="field">
+              <input 
+                type="text"
+                value={this.state.term}
+                onChange={this.onInputChange}
+                placeholder="Search for videos..."
+              />
+            </div>
+          </form>
+        </div>
       </div>
     )
   }

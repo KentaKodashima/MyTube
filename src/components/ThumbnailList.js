@@ -1,11 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import ThumbnailItem from './ThumbnailItem'
 
-const ThumbnailList = ({ thumbnailVideos }) => {
+const ThumbnailList = ({ thumbnailVideos, onVideoSelect }) => {
   const renderedList = thumbnailVideos.map((video) => {
     return (
-      <div className="column">
-        <ThumbnailItem key={video.id.videoId} thumbnailVideo={video} />
+      <div className="column" key={video.id.videoId} >
+        <Link to={`/detail/${video.id.videoId}`} >
+          <ThumbnailItem thumbnailVideo={video} onVideoSelect={onVideoSelect} />
+        </Link>
       </div>
     )
   })

@@ -1,0 +1,7 @@
+.video-thumbnail {
+  width: 100% !important;
+}
+
+.object-fit-img {
+  object-fit: cover;
+}

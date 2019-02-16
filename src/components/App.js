@@ -10,7 +10,7 @@ class App extends React.Component {
   state = { videos: [], thumbnailVideos: [] }
 
   componentDidMount() {
-    this.onTermSubmit('funny video')
+    this.onTermSubmit('vancouver')
   }
 
   onTermSubmit = async term => {
@@ -62,7 +62,7 @@ class App extends React.Component {
                       videos={videos} 
                       thumbnailVideos={thumbnailVideos} 
                       onVideoSelect={this.onVideoSelect}
-                    />} 
+                    />}
                 />
                 <Route 
                   path="/detail/:id" 
