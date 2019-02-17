@@ -1,5 +1,7 @@
 import './Detail.css'
 import React from 'react'
+import { connect } from 'react-redux'
+
 import VideoDescription from './VideoDescription'
 import VideoList from './VideoList'
 
@@ -13,7 +15,7 @@ class Detail extends React.Component {
   }
 
   render() {
-    const { videos, onVideoSelect, selectedVideo } = this.props
+    const { videos, selectedVideo } = this.props
     const videoDescriptionClass = this.state.isPC ? 'nine wide column' : 'row'
     const videoListClass = this.state.isPC ? 'seven wide column video-list' : 'row'
 
@@ -24,7 +26,7 @@ class Detail extends React.Component {
             <VideoDescription selectedVideo={selectedVideo} />
           </div>
           <div className={`${videoListClass}`}>
-            <VideoList videos={videos} onVideoSelect={onVideoSelect} />
+            <VideoList videos={videos} />
           </div>
         </div>
       </div>
@@ -32,4 +34,8 @@ class Detail extends React.Component {
   }
 }
 
-export default Detail
+const mapStateToProps = (state) => {
+  return { selectedVideo: state.selectedVideo }
+}
+
+export default connect(mapStateToProps)(Detail)

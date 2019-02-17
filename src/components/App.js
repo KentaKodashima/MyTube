@@ -3,7 +3,6 @@ import { Switch, Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchVideos } from '../actions'
 
-import youtube from '../api/youtube'
 import history from '../history'
 import Header from './Header'
 import Home from './Home'
@@ -13,27 +12,10 @@ class App extends React.Component {
   state = { videos: [], thumbnailVideos: [] }
 
   componentDidMount() {
-    // this.onTermSubmit('vancouver')
-
     this.props.fetchVideos('vancouver')
   }
 
   onTermSubmit = async term => {
-    // const response = await youtube.get('search', {
-    //   params: {
-    //     q: term
-    //   }
-    // })
-
-    // const allVideos = response.data.items
-    // const thumbnailArray = []
-    // thumbnailArray.push(this.fetchRandomThumbnailVideo(allVideos))
-    // thumbnailArray.push(this.fetchRandomThumbnailVideo(allVideos))
-
-    // this.setState({ 
-    //   videos: response.data.items,
-    //   thumbnailVideos: thumbnailArray
-    // })
 
     this.props.fetchVideos(term)
 
@@ -53,8 +35,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { videos, thumbnailVideos } = this.state
-    console.log(this.props.videos)
+    const { thumbnailVideos } = this.state
     return (
       <div>
         <Router history={history}>
@@ -66,14 +47,11 @@ class App extends React.Component {
                     <Home 
                       videos={this.props.videos} 
                       thumbnailVideos={thumbnailVideos} 
-                      onVideoSelect={this.onVideoSelect}
                     />}
                 />
                 <Route path="/detail/:id" render={ props => 
                     <Detail 
-                      videos={this.props.videos} 
-                      onVideoSelect={this.onVideoSelect}
-                      selectedVideo={this.state.selectedVideo}
+                      videos={this.props.videos}
                     />}
                 />
               </div>

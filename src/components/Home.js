@@ -13,14 +13,10 @@ class Home extends React.Component {
     return (
       <div>
         <ThumbnailList thumbnailVideos={thumbnailVideos} onVideoSelect={onVideoSelect} />
-        <VideoList videos={videos} onVideoSelect={onVideoSelect} />
+        <VideoList videos={videos} />
       </div>
     )
   }
 }
-
-// const mapStateToProps = (state) => {
-//   return { videos: state.videos }
-// }
 
 export default Home

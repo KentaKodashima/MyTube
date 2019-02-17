@@ -1,21 +1,40 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { selectVideo } from '../actions'
+
 import VideoItem from './VideoItem'
 
-const VideoList = ({ videos, onVideoSelect }) => {
-  const renderedList = videos.map((video) => {
-    return (
-      <Link to={`/detail/${video.id.videoId}`} key={video.id.videoId} >
-        <VideoItem video={video} onVideoSelect={onVideoSelect} />
-      </Link>
-    )
-  })
+class VideoList extends React.Component { //= ({ videos }) => {
 
-  return (
-    <div className="ui relaxed divided list">
-      {renderedList}
-    </div>
-  )
+  render() {
+    const { videos, selectVideo } = this.props
+
+    const renderedList = videos.map((video) => {
+      return (
+        <Link 
+          to={`/detail/${video.id.videoId}`} 
+          key={video.id.videoId} 
+          onClick={() => selectVideo(video)} 
+        >
+          <VideoItem video={video} />
+        </Link>
+      )
+    })
+
+    return (
+      <div className="ui relaxed divided list">
+        {renderedList}
+      </div>
+    )
+  }
 }
 
-export default VideoList
+const mapStateToProps = (state, ownProps) => {
+  return { videos: ownProps.videos }
+}
+
+export default connect(
+  mapStateToProps,
+  { selectVideo }
+)(VideoList)

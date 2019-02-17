@@ -1,6 +1,7 @@
 import React from 'react'
 
 const VideoDescription = ({ selectedVideo }) => {
+
   if (!selectedVideo) {
     return <div>Loading...</div>
   }
