@@ -1,13 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { selectVideo } from '../actions'
+
 import ThumbnailItem from './ThumbnailItem'
 
-const ThumbnailList = ({ thumbnailVideos, onVideoSelect }) => {
+const ThumbnailList = ({ thumbnailVideos, selectVideo }) => {
   const renderedList = thumbnailVideos.map((video) => {
     return (
       <div className="column" key={video.id.videoId} >
-        <Link to={`/detail/${video.id.videoId}`} >
-          <ThumbnailItem thumbnailVideo={video} onVideoSelect={onVideoSelect} />
+        <Link 
+          to={`/detail/${video.id.videoId}`}
+          onClick={() => selectVideo(video)}
+        >
+          <ThumbnailItem thumbnailVideo={video} />
         </Link>
       </div>
     )
@@ -22,4 +28,7 @@ const ThumbnailList = ({ thumbnailVideos, onVideoSelect }) => {
   )
 }
 
-export default ThumbnailList
+export default connect(
+  null,
+  { selectVideo }
+)(ThumbnailList)

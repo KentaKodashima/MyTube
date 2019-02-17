@@ -5,8 +5,7 @@ import { selectVideo } from '../actions'
 
 import VideoItem from './VideoItem'
 
-class VideoList extends React.Component { //= ({ videos }) => {
-
+class VideoList extends React.Component {
   render() {
     const { videos, selectVideo } = this.props
 

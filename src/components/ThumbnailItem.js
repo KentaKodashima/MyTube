@@ -1,9 +1,9 @@
 import './ThumbnailItem.css'
 import React from 'react'
 
-const ThumbnailItem = ({ thumbnailVideo, onVideoSelect }) => {
+const ThumbnailItem = ({ thumbnailVideo }) => {
   return (
-    <div className="ui card centered video-thumbnail" onClick={() => {onVideoSelect(thumbnailVideo)}}>
+    <div className="ui card centered video-thumbnail">
       <img 
         className="ui image object-fit-img" 
         src={thumbnailVideo.snippet.thumbnails.medium.url} 

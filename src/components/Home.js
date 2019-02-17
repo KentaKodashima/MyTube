@@ -17,8 +17,21 @@ class Home extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { videos: state.videos }
+const generateRandomThumbnailVideos = (videos) => {
+  const randomNum1 = Math.floor(Math.random() * Math.floor(videos.length))
+  const randomNum2 = Math.floor(Math.random() * Math.floor(videos.length))
+  const thumbnailVideos = []
+  const thumbnailVideoLeft = videos[randomNum1]
+  const thumbnailVideoRight = videos[randomNum2]
+  thumbnailVideos.push(thumbnailVideoLeft)
+  thumbnailVideos.push(thumbnailVideoRight)
+
+  return thumbnailVideos
+}
+
+const mapStateToProps = (state, ownProps) => {
+  const thumbnailVideos = generateRandomThumbnailVideos(state.videos)
+  return { videos: state.videos, thumbnailVideos: thumbnailVideos }
 }
 
 export default connect(mapStateToProps)(Home)

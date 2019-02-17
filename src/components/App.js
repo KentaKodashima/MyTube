@@ -7,6 +7,7 @@ import history from '../history'
 import Header from './Header'
 import Home from './Home'
 import Detail from './Detail'
+import ThumbnailList from './ThumbnailList';
 
 class App extends React.Component {
   state = { videos: [], thumbnailVideos: [] }
@@ -18,22 +19,9 @@ class App extends React.Component {
   }
 
   onTermSubmit = async term => {
-
     this.props.fetchVideos(term)
 
     history.push('/')
-  }
-
-  fetchRandomThumbnailVideo = (videos) => {
-    const randomNum = Math.floor(Math.random() * Math.floor(videos.length))
-    const video = videos[randomNum]
-    videos.splice(randomNum, 1)
-
-    return video
-  }
-
-  onVideoSelect = video => {
-    this.setState({ selectedVideo: video })
   }
 
   render() {
@@ -45,15 +33,8 @@ class App extends React.Component {
             <Header onTermSubmit={this.onTermSubmit} />
             <Switch>
               <div className="ui container">
-                <Route path="/" exact render={ props => 
-                    <Home 
-                      thumbnailVideos={thumbnailVideos} 
-                    />}
-                />
-                <Route path="/detail/:id" render={ props => 
-                    <Detail 
-                    />}
-                />
+                <Route path="/" exact component={Home} />
+                <Route path="/detail/:id" component={Detail} />
               </div>
             </Switch>
           </div>
