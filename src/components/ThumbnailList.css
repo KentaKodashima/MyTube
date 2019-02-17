@@ -1,0 +1,14 @@
+.thumbnail-list {
+  width: 100%;
+  margin: 0 auto 45px;
+  padding-bottom: 45px !important;
+  border-bottom: 1px solid rgba(34,36,38,.15);
+}
+
+.thumbnail-item {
+  margin-bottom: 8px;
+}
+
+.thumbnail-item:last-child {
+  margin-bottom: 0;
+}

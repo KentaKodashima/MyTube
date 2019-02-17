@@ -18,7 +18,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div className="ui segment">
+      <div className="ui segment" style={{ marginBottom: 0 }}>
         <div className="ui secondary menu">
           <div className="item">
             <Link to="/">

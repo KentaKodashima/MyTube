@@ -16,7 +16,7 @@ class Detail extends React.Component {
 
   render() {
     const { videos, selectedVideo } = this.props
-    const videoDescriptionClass = this.state.isPC ? 'nine wide column' : 'row'
+    const videoDescriptionClass = this.state.isPC ? 'nine wide column' : 'row description-wrapper'
     const videoListClass = this.state.isPC ? 'seven wide column video-list' : 'row'
 
     return (

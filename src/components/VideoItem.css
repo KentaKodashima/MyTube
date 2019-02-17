@@ -1,13 +1,21 @@
 .video-item {
   display: flex !important;
-  align-items: center !important;
+  align-items: start !important;
   cursor: pointer;
   color: black;
-  margin-top: 8px;
+  margin-bottom: 8px !important;
+  background-color: white;
+  -webkit-box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
 }
 
 .video-title {
   margin-left: 16px;
+  font-weight: bold;
+}
+
+.video-item-body {
+  padding: 8px 16px 8px 0;
 }
 
 .video-item.item img {

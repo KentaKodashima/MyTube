@@ -1,3 +1,4 @@
+import './App.css'
 import React from 'react'
 import { Switch, Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -32,9 +33,11 @@ class App extends React.Component {
           <div>
             <Header onTermSubmit={this.onTermSubmit} />
             <Switch>
-              <div className="ui container">
-                <Route path="/" exact component={Home} />
-                <Route path="/detail/:id" component={Detail} />
+              <div className="main-wrapper">
+                <div className="ui container">
+                  <Route path="/" exact component={Home} />
+                  <Route path="/detail/:id" component={Detail} />
+                </div>
               </div>
             </Switch>
           </div>
