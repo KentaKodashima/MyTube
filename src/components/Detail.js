@@ -35,7 +35,7 @@ class Detail extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { selectedVideo: state.selectedVideo }
+  return { videos: state.videos, selectedVideo: state.selectedVideo }
 }
 
 export default connect(mapStateToProps)(Detail)

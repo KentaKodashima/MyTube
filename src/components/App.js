@@ -12,7 +12,9 @@ class App extends React.Component {
   state = { videos: [], thumbnailVideos: [] }
 
   componentDidMount() {
-    this.props.fetchVideos('vancouver')
+    if (!this.props.videos) {
+      this.props.fetchVideos('vancouver')
+    }
   }
 
   onTermSubmit = async term => {
@@ -45,13 +47,11 @@ class App extends React.Component {
               <div className="ui container">
                 <Route path="/" exact render={ props => 
                     <Home 
-                      videos={this.props.videos} 
                       thumbnailVideos={thumbnailVideos} 
                     />}
                 />
                 <Route path="/detail/:id" render={ props => 
                     <Detail 
-                      videos={this.props.videos}
                     />}
                 />
               </div>

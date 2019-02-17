@@ -1,22 +1,24 @@
 import React from 'react'
-// import { connect } from 'react-redux'
-// import { fetchVideos } from '../actions'
+import { connect } from 'react-redux'
 
 import ThumbnailList from './ThumbnailList'
 import VideoList from './VideoList'
 
 class Home extends React.Component {
-
   render() {
-    const { videos, thumbnailVideos, onVideoSelect } = this.props
+    const { videos, thumbnailVideos } = this.props
 
     return (
       <div>
-        <ThumbnailList thumbnailVideos={thumbnailVideos} onVideoSelect={onVideoSelect} />
+        <ThumbnailList thumbnailVideos={thumbnailVideos} />
         <VideoList videos={videos} />
       </div>
     )
   }
 }
 
-export default Home
+const mapStateToProps = (state) => {
+  return { videos: state.videos }
+}
+
+export default connect(mapStateToProps)(Home)
