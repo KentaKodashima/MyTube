@@ -8,7 +8,6 @@ import history from '../history'
 import Header from './Header'
 import Home from './Home'
 import Detail from './Detail'
-import ThumbnailList from './ThumbnailList';
 
 class App extends React.Component {
   state = { videos: [], thumbnailVideos: [] }
@@ -26,20 +25,19 @@ class App extends React.Component {
   }
 
   render() {
-    const { thumbnailVideos } = this.state
     return (
       <div>
         <Router history={history}>
           <div>
             <Header onTermSubmit={this.onTermSubmit} />
-            <Switch>
-              <div className="main-wrapper">
-                <div className="ui container">
+            <div className="main-wrapper">
+              <div className="ui container">
+                <Switch>
                   <Route path="/" exact component={Home} />
                   <Route path="/detail/:id" component={Detail} />
-                </div>
+                </Switch>
               </div>
-            </Switch>
+            </div>
           </div>
         </Router>
       </div>

@@ -2,6 +2,7 @@
   "name": "my-tube",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://mytube.kentakodashima.com/",
   "dependencies": {
     "react": "^16.8.1",
     "react-dom": "^16.8.1",

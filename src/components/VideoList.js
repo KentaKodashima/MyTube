@@ -10,10 +10,13 @@ class VideoList extends React.Component {
     const { videos, selectVideo } = this.props
 
     const renderedList = videos.map((video) => {
+      // video.id.videoId is not unique
+      const key = video.etag
+
       return (
-        <Link 
-          to={`/detail/${video.id.videoId}`} 
-          key={video.id.videoId} 
+        <Link
+          to={`/detail/${key}`} 
+          key={key}
           onClick={() => selectVideo(video)} 
         >
           <VideoItem video={video} />

@@ -18,8 +18,14 @@ class Home extends React.Component {
 }
 
 const generateRandomThumbnailVideos = (videos) => {
-  const randomNum1 = Math.floor(Math.random() * Math.floor(videos.length))
-  const randomNum2 = Math.floor(Math.random() * Math.floor(videos.length))
+  let randomNum1 = Math.floor(Math.random() * Math.floor(videos.length))
+  let randomNum2 = Math.floor(Math.random() * Math.floor(videos.length))
+
+  // Avoid using the same videos
+  while (randomNum2 === randomNum1) {
+    randomNum2 = Math.floor(Math.random() * Math.floor(videos.length))
+  }
+
   const thumbnailVideos = []
   const thumbnailVideoLeft = videos[randomNum1]
   const thumbnailVideoRight = videos[randomNum2]

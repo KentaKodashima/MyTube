@@ -1,6 +1,6 @@
 .video-item {
   display: flex !important;
-  align-items: start !important;
+  align-items: flex-start !important;
   cursor: pointer;
   color: black;
   margin-bottom: 8px !important;
