@@ -25,6 +25,9 @@ class App extends React.Component {
   }
 
   render() {
+    if (!this.props.videos) {
+      return <div>Loading...</div>
+    }
     return (
       <div>
         <Router history={history}>
