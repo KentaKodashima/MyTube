@@ -10,10 +10,8 @@ import Home from './Home'
 import Detail from './Detail'
 
 class App extends React.Component {
-  state = { videos: [], thumbnailVideos: [] }
-
   componentDidMount() {
-    if (!this.props.videos) {
+    if (this.props.videos.length === 0) {
       this.props.fetchVideos('vancouver')
     }
   }

@@ -5,12 +5,23 @@ import ThumbnailList from './ThumbnailList'
 import VideoList from './VideoList'
 
 class Home extends React.Component {
+  state = { thumbnailVideos: [] }
+
+  componentDidMount() {
+    if (this.props.videos.length != 0) {
+      const thumbnailVideos = generateRandomThumbnailVideos(this.props.videos)
+      this.setState({
+        thumbnailVideos: thumbnailVideos
+      })
+    }
+  }
+
   render() {
-    const { videos, thumbnailVideos } = this.props
+    const { videos } = this.props
 
     return (
       <div>
-        <ThumbnailList thumbnailVideos={thumbnailVideos} />
+        <ThumbnailList thumbnailVideos={this.state.thumbnailVideos} />
         <VideoList videos={videos} />
       </div>
     )
@@ -36,8 +47,7 @@ const generateRandomThumbnailVideos = (videos) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const thumbnailVideos = generateRandomThumbnailVideos(state.videos)
-  return { videos: state.videos, thumbnailVideos: thumbnailVideos }
+  return { videos: state.videos }
 }
 
 export default connect(mapStateToProps)(Home)
