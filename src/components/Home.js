@@ -9,11 +9,22 @@ class Home extends React.Component {
 
   componentDidMount() {
     if (this.props.videos.length !== 0) {
-      const thumbnailVideos = generateRandomThumbnailVideos(this.props.videos)
-      this.setState({
-        thumbnailVideos: thumbnailVideos
-      })
+      this.setThumbnailVideos()
     }
+  }
+
+  componentDidUpdate(oldProps) {
+    const newProps = this.props
+    if(oldProps.videos !== newProps.videos) {
+      this.setThumbnailVideos()
+    }
+  }
+
+  setThumbnailVideos() {
+    const thumbnailVideos = generateRandomThumbnailVideos(this.props.videos)
+    this.setState({
+      thumbnailVideos: thumbnailVideos
+    })
   }
 
   render() {
