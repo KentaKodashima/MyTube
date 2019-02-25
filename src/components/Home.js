@@ -8,7 +8,7 @@ class Home extends React.Component {
   state = { thumbnailVideos: [] }
 
   componentDidMount() {
-    if (this.props.videos.length != 0) {
+    if (this.props.videos.length !== 0) {
       const thumbnailVideos = generateRandomThumbnailVideos(this.props.videos)
       this.setState({
         thumbnailVideos: thumbnailVideos

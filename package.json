@@ -2,7 +2,7 @@
   "name": "my-tube",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://mytube-react-redux.s3-website-us-west-1.amazonaws.com",
+  "homepage": "http://mytube.kentakodashima.com.s3-website-us-west-1.amazonaws.com",
   "dependencies": {
     "axios": "^0.18.0",
     "react": "^16.8.1",
@@ -17,7 +17,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "aws s3 sync build/ s3://mytube-react-redux",
+    "deploy": "aws s3 sync build/ s3://mytube.kentakodashima.com",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -14,6 +14,10 @@ class ThumbnailList extends React.Component {
     window.addEventListener('resize', () => {
       this.setState({ isPC: window.innerWidth > 960 });
     }, false)
+
+    this.setState({
+      isPC: window.innerWidth > 960
+    })
   }
 
   render() {
