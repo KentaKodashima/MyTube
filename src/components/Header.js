@@ -13,7 +13,6 @@ class Header extends React.Component {
     event.preventDefault()
 
     this.props.onTermSubmit(this.state.term)
-    this.setState({ term: '' })
   }
 
   render() {
