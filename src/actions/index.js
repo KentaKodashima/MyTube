@@ -7,7 +7,7 @@ import {
 } from './types'
 
 export const fetchVideos = (term) => async dispatch => {
-  const response = await await youtube.get('search', {
+  const response = await youtube.get('search', {
     params: {
       q: term
     }
@@ -17,7 +17,7 @@ export const fetchVideos = (term) => async dispatch => {
 }
 
 export const fetchRelatedVideos = (videoId) => async dispatch => {
-  const response = await await youtube.get('search', {
+  const response = await youtube.get('search', {
     params: {
       relatedToVideoId: videoId,
       type: 'video'
